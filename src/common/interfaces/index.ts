@@ -3,10 +3,20 @@ import {
   type ICustomErrorResponse
 } from './responsesInterfaces'
 
-import { type IUserJwtPayload } from './authInterfaces'
+import { type IUserJwtPayload, type IRequest, type IUserLoginPayload } from './authInterfaces'
+
+import { type IUserPayload, type IUser } from './userInterfaces'
+
+import { type IVotePayload, type IVote } from './voteInterfaces'
 
 export type {
   ISuccessResponse,
   ICustomErrorResponse,
-  IUserJwtPayload
+  IUserJwtPayload,
+  IUserPayload,
+  IUser,
+  IRequest,
+  IUserLoginPayload,
+  IVotePayload,
+  IVote
 }

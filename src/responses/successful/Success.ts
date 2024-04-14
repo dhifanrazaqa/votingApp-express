@@ -2,12 +2,12 @@ import { type ISuccessResponse } from '../../common/interfaces'
 import { type SuccessData } from '../../common/types'
 
 class Success {
-  private readonly _successCode: number = 200
-  private readonly _message: string = 'success'
+  private readonly _message: string
   private readonly _data: SuccessData
 
-  constructor (data: SuccessData = null) {
+  constructor (message: string = 'success', data: SuccessData = null) {
     this._data = data
+    this._message = message
   }
 
   get toJson (): ISuccessResponse {

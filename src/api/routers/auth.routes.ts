@@ -1,11 +1,13 @@
 import express, { type Router } from 'express'
-import Success from '../../responses/successful/Success'
+import { login } from '../controllers/auth.controller'
+import auth from '../middleware/authMiddleware'
+import { type IRequest } from '../../common/interfaces/authInterfaces'
 
 const router: Router = express.Router()
 
-router.get('/login', (req, res) => {
-  const response = new Success().toJson
-  return res.status(200).json(response)
+router.post('/login', login)
+router.get('/test', auth(['ADMIN', 'USER']), (req: IRequest, res) => {
+  res.status(200).json({ message: req.user })
 })
 
 export default router

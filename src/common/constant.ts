@@ -5,6 +5,7 @@ export enum StatusCode {
   UNAUTHENTICATED = 401,
   FORBIDDEN = 403,
   NOT_FOUND = 404,
+  UNPROCESSABLE_ENTITY = 422,
   INTERNAL_SERVER_ERROR = 500,
   BAD_GATEWAY = 502
 };
@@ -24,9 +25,4 @@ export enum ErrorDescription {
   API_KEY_INVALID = 'API_KEY_INVALID',
   NOT_FOUND = 'NOT_FOUND',
   BAD_GATEWAY = 'BAD_GATEWAY'
-}
-
-export enum UserRole {
-  ADMIN = 'ADMIN',
-  USER = 'USER'
 }
