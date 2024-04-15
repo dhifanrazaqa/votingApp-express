@@ -27,6 +27,9 @@ const findVoteById = async (id: string): Promise<IVote | null> => {
   const vote = await prisma.vote.findUnique({
     where: {
       id
+    },
+    include: {
+      options: true
     }
   })
 

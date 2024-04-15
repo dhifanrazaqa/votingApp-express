@@ -1,12 +1,12 @@
 import { Router } from 'express'
-import { addVote, deleteVote, putVote, vote, votes } from '../controllers/vote.controller'
+import { addNewVote, deleteVote, putVote, vote, votes } from '../controllers/vote.controller'
 import auth from '../middleware/authMiddleware'
 
 const router: Router = Router()
 
 router.get('/votes', auth(['USER', 'ADMIN']), votes)
 router.get('/votes/:id', auth(['USER', 'ADMIN']), vote)
-router.post('/vote', auth(['ADMIN']), addVote)
+router.post('/vote', auth(['ADMIN']), addNewVote)
 router.put('/vote/:id', auth(['ADMIN']), putVote)
 router.delete('/vote/:id', auth(['ADMIN']), deleteVote)
 

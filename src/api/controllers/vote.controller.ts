@@ -3,7 +3,7 @@ import { type IVotePayload, type IRequest } from '../../common/interfaces'
 import Success from '../../responses/successful/Success'
 import { createVote, getAllVotes, getVote, removeVote, updateVote } from '../services/vote.service'
 
-const addVote = async (req: IRequest, res: Response, next: NextFunction): Promise<void> => {
+const addNewVote = async (req: IRequest, res: Response, next: NextFunction): Promise<void> => {
   try {
     const { title, startAt, endAt } = req.body
 
@@ -86,7 +86,7 @@ const putVote = async (req: IRequest, res: Response, next: NextFunction): Promis
 }
 
 export {
-  addVote,
+  addNewVote,
   votes,
   vote,
   deleteVote,
