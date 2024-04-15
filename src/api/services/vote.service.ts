@@ -25,7 +25,7 @@ const getVote = async (id: string): Promise<IVote | null> => {
   const vote = await findVoteById(id)
   if (vote == null) {
     throw new NotFound(
-      404,
+      StatusCode.NOT_FOUND,
       'No such vote',
       ErrorDescription.NOT_FOUND
     )
@@ -38,7 +38,7 @@ const removeVote = async (id: string, userId: string): Promise<void> => {
   const vote = await findVoteById(id)
   if (vote == null) {
     throw new NotFound(
-      404,
+      StatusCode.NOT_FOUND,
       'No such vote',
       ErrorDescription.NOT_FOUND
     )
@@ -59,7 +59,7 @@ const updateVote = async (id: string, userId: string, voteData: IVotePayload): P
   const vote = await findVoteById(id)
   if (vote == null) {
     throw new NotFound(
-      404,
+      StatusCode.NOT_FOUND,
       'No such vote',
       ErrorDescription.NOT_FOUND
     )

@@ -7,7 +7,7 @@ import { generateJWT } from '../../utils/authUtils'
 
 const loginUser = async (userData: IUserLoginPayload): Promise<string> => {
   const user = await findUserByEmail(userData.email)
-  if (!user) {
+  if (user == null) {
     throw new BadRequest(
       400,
       'You have entered an invalid email address or password',

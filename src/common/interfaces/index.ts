@@ -9,6 +9,8 @@ import { type IUserPayload, type IUser } from './userInterfaces'
 
 import { type IVotePayload, type IVote } from './voteInterfaces'
 
+import { type IOptionPayload, type IOption } from './optionInterfaces'
+
 export type {
   ISuccessResponse,
   ICustomErrorResponse,
@@ -18,5 +20,7 @@ export type {
   IRequest,
   IUserLoginPayload,
   IVotePayload,
-  IVote
+  IVote,
+  IOptionPayload,
+  IOption
 }

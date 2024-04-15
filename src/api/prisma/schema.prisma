@@ -20,7 +20,8 @@ model User {
   password    String
   role        Role        @default(USER)
   votes       Vote[]
-  joinedVotes JoinedVote[]
+  joinedVotes UserVote[]
+  addVotes    UserVoteOption[]
 }
 
 model Vote {
@@ -33,7 +34,8 @@ model Vote {
   author      User        @relation(fields: [authorId], references: [id])
   authorId    String
   options     Option[]
-  joinedVotes JoinedVote[]
+  joinedVotes UserVote[]
+  addVotes    UserVoteOption[]
 }
 
 model Option {
@@ -41,15 +43,27 @@ model Option {
   title       String
   vote        Vote        @relation(fields: [voteId], references: [id])
   voteId      String
+  addVotes    UserVoteOption[]
 }
 
-model JoinedVote {
+model UserVote {
   user        User        @relation(fields: [userId], references: [id])
   userId      String
   vote        Vote        @relation(fields: [voteId], references: [id])
   voteId      String
   joinedAt    DateTime    @default(now())
   @@id([userId, voteId])
+}
+
+model UserVoteOption {
+  user        User        @relation(fields: [userId], references: [id])
+  userId      String
+  vote        Vote        @relation(fields: [voteId], references: [id])
+  voteId      String
+  option      Option      @relation(fields: [optionId], references: [id])
+  optionId      String
+  voteddAt    DateTime    @default(now())
+  @@id([userId, voteId, optionId])
 }
 
 enum Role {
